@@ -1,4 +1,4 @@
 apiVersion: v1
-name: activiti-cloud-identity
+name: activiti-cloud-identity-chart
 version: 0.0.1
 appVersion: 0.0.1
