@@ -45,7 +45,7 @@ github:
 	   git status && \
 	   git commit -m "fix:(version) release $(NAME)-$(VERSION).tgz" && \
 	   git pull && \
-	   git push -f -q https://${GITHUB_TOKEN}@github.com/Activiti/activiti-cloud-helm-charts.git "$(GITHUB_CHARTS_BRANCH)"
+	   git push -f -q https://${GITHUB_TOKEN}@github.com/activiti-cloud-helm-charts.git "$(GITHUB_CHARTS_BRANCH)"
 	rm -rf $(GITHUB_CHARTS_DIR)
 
 version:
@@ -56,7 +56,7 @@ tag:
 	git add --all
 	git commit -m "release $(VERSION)" --allow-empty # if first release then no verion update is performed
 	git tag -fa v$(VERSION) -m "Release version $(VERSION)"
-	git push -f -q https://${GITHUB_TOKEN}@github.com/Activiti/activiti/activiti-cloud-identity-chart.git v$(VERSION)
+	git push -f -q https://${GITHUB_TOKEN}@github.com/Activiti/activiti-cloud-identity-chart.git v$(VERSION)
 	
 updatebot/push-version:
 	cd ../../ && updatebot push-version --kind helm $(NAME) $(VERSION)
