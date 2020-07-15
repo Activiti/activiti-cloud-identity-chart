@@ -28,19 +28,17 @@ jobs:
     script:
     - cd charts/$APP_NAME && make build 
     
-  - name: Create tag package helm chart and realease it
+  - if: branch = master
+    name: Create tag package helm chart and realease it
     stage: releasechart
-    if: branch = master
     script: | 
-    if [[ "$TRAVIS_BRANCH" != "master" ]]; then
-      echo "We're not on the master branch."
       cd charts/$APP_NAME 
       make version
       make tag
       make release
       make github
       make updatebot/push-version
-    fi
+
     
     
     
