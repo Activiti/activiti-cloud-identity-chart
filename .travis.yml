@@ -31,7 +31,8 @@ jobs:
   - if: branch = master
     name: Create tag package helm chart and realease it
     stage: releasechart
-    script: | 
+    script: |
+      echo TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
       if [ "$TRAVIS_PULL_REQUEST" = "false" ]; 
       then
         cd charts/$APP_NAME ;
