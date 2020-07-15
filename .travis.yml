@@ -32,12 +32,15 @@ jobs:
     name: Create tag package helm chart and realease it
     stage: releasechart
     script: | 
-      cd charts/$APP_NAME 
-      make version
-      make tag
-      make release
-      make github
-      make updatebot/push-version
+      if [ "$TRAVIS_PULL_REQUEST" = "false" ]; 
+      then
+        cd charts/$APP_NAME ;
+        make version ;
+        make tag ;
+        make release ;
+        make github ;
+        make updatebot/push-version ;
+      fi
 
     
     
