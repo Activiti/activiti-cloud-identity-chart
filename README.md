@@ -1,2 +1,2 @@
 # activiti-cloud-identity-chart
-helper chart for alfresco identity services
+Helper chart for alfresco identity services
