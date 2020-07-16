@@ -19,7 +19,7 @@ before_script:
 stages:
 - name: verify
 - name: releasechart
-  if: branch = master
+  if: type != pull_request
   
 jobs:
   include:
@@ -28,8 +28,7 @@ jobs:
     script:
     - cd charts/$APP_NAME && make build 
     
-  - if: branch = master
-    name: Create tag package helm chart and realease it
+  - name: Create tag package helm chart and realease it
     stage: releasechart
     script: |
       echo TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
